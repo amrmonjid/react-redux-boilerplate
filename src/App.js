@@ -1,11 +1,14 @@
 import React from "react";
 import "./App.css";
-import { connect } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { AddDataActionSampleOne } from "./redux/smaple-section/section.actions";
-import { createStructuredSelector } from "reselect";
+//import { createStructuredSelector } from "reselect";
 import { selectSectionData } from "./redux/smaple-section/section.selectors";
 
-function App({ data, addData }) {
+function App() {
+  const data = useSelector(selectSectionData);
+  const dispatch = useDispatch();
+
   return (
     <div className="App">
       <h1>React - Redux boilerplate</h1>
@@ -14,7 +17,11 @@ function App({ data, addData }) {
       <br></br>
       <button
         onClick={() => {
-          addData({ name: "Test Data Added To The store - Check the console" });
+          dispatch(
+            AddDataActionSampleOne({
+              name: "Test Data Added To The store - Check the console"
+            })
+          );
         }}
       >
         Text Redux
@@ -23,15 +30,17 @@ function App({ data, addData }) {
   );
 }
 
-const mapStateToProps = createStructuredSelector({
-  data: selectSectionData
-});
+export default App;
 
-const mapDispatchToProps = dispatch => ({
-  addData: data => dispatch(AddDataActionSampleOne(data))
-});
+// const mapStateToProps = createStructuredSelector({
+//   data: selectSectionData
+// });
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(App);
+// const mapDispatchToProps = dispatch => ({
+//   addData: data => dispatch(AddDataActionSampleOne(data))
+// });
+
+// export default connect(
+//   mapStateToProps,
+//   mapDispatchToProps
+// )(App);
