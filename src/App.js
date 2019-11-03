@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector /*connect*/ } from "react-redux";
 import { AddDataActionSampleOne } from "./redux/smaple-section/section.actions";
 //import { createStructuredSelector } from "reselect";
 import { selectSectionData } from "./redux/smaple-section/section.selectors";
