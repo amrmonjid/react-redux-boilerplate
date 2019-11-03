@@ -1,26 +1,37 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import "./App.css";
+import { connect } from "react-redux";
+import { AddDataActionSampleOne } from "./redux/smaple-section/section.actions";
+import { createStructuredSelector } from "reselect";
+import { selectSectionData } from "./redux/smaple-section/section.selectors";
 
-function App() {
+function App({ data, addData }) {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>React - Redux boilerplate</h1>
+      <h2>Basic setup for a quick react project start</h2>
+      {data.name}
+      <br></br>
+      <button
+        onClick={() => {
+          addData({ name: "Test Data Added To The store - Check the console" });
+        }}
+      >
+        Text Redux
+      </button>
     </div>
   );
 }
 
-export default App;
+const mapStateToProps = createStructuredSelector({
+  data: selectSectionData
+});
+
+const mapDispatchToProps = dispatch => ({
+  addData: data => dispatch(AddDataActionSampleOne(data))
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App);

@@ -1,0 +1,4 @@
+export const SectionTypes = {
+  SECTION_TYPE_ONE: "SECTION_TYPE_ONE",
+  SECTION_TYPE_TWO: "SECTION_TYPE_TWO"
+};
