@@ -5,7 +5,7 @@ import { AddDataActionSampleOne } from "./redux/smaple-section/section.actions";
 //import { createStructuredSelector } from "reselect";
 import { selectSectionData } from "./redux/smaple-section/section.selectors";
 
-function App() {
+const App = () => {
   const data = useSelector(selectSectionData);
   const dispatch = useDispatch();
 
@@ -28,7 +28,7 @@ function App() {
       </button>
     </div>
   );
-}
+};
 
 export default App;
 
