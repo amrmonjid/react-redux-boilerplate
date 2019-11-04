@@ -1,9 +1,9 @@
 import React from "react";
 import "./App.css";
 import { useDispatch, useSelector /*connect*/ } from "react-redux";
-import { AddDataActionSampleOne } from "./redux/smaple-section/section.actions";
+import { AddDataActionSampleOne } from "./redux/sample-section/section.actions";
 //import { createStructuredSelector } from "reselect";
-import { selectSectionData } from "./redux/smaple-section/section.selectors";
+import { selectSectionData } from "./redux/sample-section/section.selectors";
 
 const App = () => {
   const data = useSelector(selectSectionData);
